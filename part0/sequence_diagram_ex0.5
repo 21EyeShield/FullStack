@@ -1,0 +1,14 @@
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: spa.js
+note over browser:
+Executes js-code
+which request json data from server
+end note 
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: {content: "test", date .....}
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
