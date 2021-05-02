@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const Statistic = (props) => (
-  <div>{props.text} {props.value}</div>
+  <td>{props.text} {props.value} {props.add}</td>
 )
 
 
@@ -22,12 +22,12 @@ const Statistics = ({good, neutral, bad, all}) => {
   }
   return( 
     <div>
-      <Statistic text="good" value={good}/>
-      <Statistic text="neutral" value={neutral}/>
-      <Statistic text="bad" value={bad}/>
-      <Statistic text="all" value={all}/>
-      <Statistic text="average" value={(good-bad)/all}/>
-      <Statistic text="positive" value={(good * 100)/all} /> 
+      <table><tbody><tr><Statistic text="good" value={good} add=""/></tr></tbody></table>
+      <table><tbody><tr><Statistic text="neutral" value={neutral}add=""/></tr></tbody></table>
+      <table><tbody><tr><Statistic text="bad" value={bad}add=""/></tr></tbody></table>
+      <table><tbody><tr><Statistic text="all" value={all}add=""/></tr></tbody></table>
+      <table><tbody><tr><Statistic text="average" value={(good-bad)/all}add=""/></tr></tbody></table>
+      <table><tbody><tr><Statistic text="positive" value={(good * 100)/all} add="%"/></tr></tbody></table> 
     </div>
 )
 }
