@@ -1,5 +1,5 @@
 import React from 'react';
-import Course from './component/Course';
+import Course from './component/Course'; //was always included ¯\_(ツ)_/¯
 const App = () => {
   const courses = [
     {
