@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import Person from './components/Person'
+import PersonForm from './components/PersonForm'
+import Filter from './components/Filter'
+import Persons from './components/Persons'
 const App = () => 
 {
   const [ newName, setNewName ] = useState('')
@@ -49,37 +52,14 @@ const App = () =>
 
  return (
     <div>
-
-      <h2>Phonebook</h2>
-      <div>
-          filter shown with <input value={newQuery} 
-                                   onChange={queryHandler}/>
-      </div>
-      <div>
-       debug: {newQuery}
-      </div>
-
-      <h2>add a new</h2>
-      <form onSubmit={altFunc}>
-        <div>
-          name: <input value={newName} 
-                       onChange={(event) => setNewName(event.target.value)}/>
-        </div>
-        <div>
-          number: <input value={newNumber}
-                       onChange={(event) => setNewNumber(event.target.value)}/>
-        </div>
-        <div>debug: {newName}</div>
-        <div>debug: {newNumber}</div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-
-      <h2>Numbers</h2>
-      <div>
-        {personToShow.map(person => <Person key={person.name} person={person} />)}
-      </div>
+      <h3>Phonebook</h3>
+        <Filter newQuery={newQuery} queryHandler={queryHandler}/>
+      <h3>add a new</h3>
+        <PersonForm func={altFunc} newName={newName} newNumber={newNumber} 
+           setNewNumber={(event) => setNewNumber(event.target.value)}
+           setNewName={(event) => setNewName(event.target.value)}/>
+      <h3>Numbers</h3>
+        <Persons persons = {personToShow}/>
     </div>
   )
 }
